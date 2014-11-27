@@ -10,7 +10,13 @@
 <body>
 <div id="container">
  <header>
-   nav goes here
+   <nav>
+     <ul>
+       <li<%= controller_name == 'companies' ? raw(' class="active"') : '' %>><%= link_to 'Companies', companies_path %></li>
+       <li<%= controller_name == 'projects' ? raw(' class="active"') : '' %>><%= link_to 'Projects', projects_path %></li>
+       <li<%= controller_name == 'works' ? raw(' class="active"') : '' %>><%= link_to 'Works', works_path %></li>
+     </ul>
+   </nav>
  </header> 
  <section id="main">
    <article>
