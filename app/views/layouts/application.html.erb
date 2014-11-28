@@ -12,9 +12,9 @@
  <header>
    <nav>
      <ul>
-       <li<%= controller_name == 'companies' ? raw(' class="active"') : '' %>><%= link_to 'Companies', companies_path %></li>
-       <li<%= controller_name == 'projects' ? raw(' class="active"') : '' %>><%= link_to 'Projects', projects_path %></li>
-       <li<%= controller_name == 'works' ? raw(' class="active"') : '' %>><%= link_to 'Works', works_path %></li>
+       <% nav_items.each do |nav_item| %> 
+         <%= display_nav_item(nav_item[:displaytext], nav_item[:controllername], nav_item[:linkurl]) %> 
+       <% end %>
      </ul>
    </nav>
  </header> 
