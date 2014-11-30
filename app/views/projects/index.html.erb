@@ -1,4 +1,5 @@
 <h1>Projects: index</h1>
+
 <p>Here are all the projects:</p>
 
 <table>
@@ -7,12 +8,7 @@
       <th>Project</th>
       <th>Company</th>
     </tr>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= link_to project, project %></td>
-        <td><%= link_to project.company.name, project.company %></td>
-      </tr>
-    <% end %>
+    <%= render partial: "project", collection: @projects %>
   </tbody>
 </table>
 
