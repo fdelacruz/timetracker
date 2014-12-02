@@ -3,19 +3,23 @@
 <p>Default Rate: <%= @project.default_rate %></p>
 <p>Slug: <%= @project.slug %></p>
 
-<table>
-  <tbody>
-    <tr>
-      <th>View</th>
-      <th>User</th>
-      <th>Project</th>
-      <th>Date/Time</th>
-      <th>Hours</th>
-    </tr>
-    <%= render partial: "works/work", collection: @project.works %>
-  </tbody>
-</table>
-
+<% if @project.works.size > 0 %>
+  <table>
+    <tbody>
+      <tr>
+        <th>View</th>
+        <th>User</th>
+        <th>Project</th>
+        <th>Date/Time</th>
+        <th>Hours</th>
+      </tr>
+      <%= render partial: "works/work", collection: @project.works %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No work items..</p>
+<% end %>
+  
 <% content_for :aside do %>
   <% render 'sidebar' %>
 <% end %>
