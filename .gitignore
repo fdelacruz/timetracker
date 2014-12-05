@@ -17,3 +17,6 @@
 .c9/
 spring/*.pid
 tags
+
+# Ignore application configuration
+/config/application.yml
