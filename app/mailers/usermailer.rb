@@ -1,5 +1,5 @@
 class Usermailer < ActionMailer::Base
-  default from: "helloquico@gmail.com"
+  default from: "fdelacruz@clientinc.com"
 
   def workcreated_email(work)
     @work = work

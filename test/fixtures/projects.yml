@@ -9,7 +9,7 @@ projectxyz:
   company: clientinc
   default_rate: 60
   slug: project-xyz
-  user: brianhoke
+  user: fdelacruz
 
 secondproj:
   name: Second Proj
