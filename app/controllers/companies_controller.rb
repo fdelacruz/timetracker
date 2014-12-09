@@ -5,6 +5,11 @@ class CompaniesController < ApplicationController
   
   def show
     @company = Company.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml { render xml: @company }
+      format.jsom { render json: @company }
+    end
   end
   
   def new
