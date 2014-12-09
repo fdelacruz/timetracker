@@ -6,20 +6,24 @@ class WorksController < ApplicationController
       @works = Work.all.order('datetimeperformed desc')
     end
   end
-  
+
   def show
     @work = Work.find(params[:id])
   end
-  
+
   def new
     @work = Work.new
   end
 
   def create
     @work = Work.new(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours))
-    uploaded_io = params[:doc]
-    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-      file.write(uploaded_io.read)
+    if params[:doc]
+      uploaded_io = params[:doc]
+      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+        @work.doc = uploaded_io.original_filename
+
+      end
     end
     respond_to do |format|
       if @work.save
