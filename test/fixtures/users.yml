@@ -16,17 +16,20 @@ janedoe:
   lname: Doe
   company: bentleyhoke
   email: jdoe@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
 
 ralphmartinez:
   fname: Ralph
   lname: Martinez
   company: clientinc
   email: rmartin@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
 
 fdelacruz:
   fname: Francisco
   lname: De La Cruz
   company: clientinc
   email: helloquico@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
 
 
