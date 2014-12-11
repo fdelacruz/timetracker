@@ -2,8 +2,8 @@ class Project < ActiveRecord::Base
   belongs_to :company
   has_many :works
   has_many :users, :through => :works
-  belongs_to :user
-
+  belongs_to :owner, class_name: "User"
+  
   validates :name, length: { minimum: 5 }
   validates :company_id, presence: true
   validates :user_id, presence: true
@@ -28,7 +28,7 @@ class Project < ActiveRecord::Base
             project.company,
             project.default_rate,
             project.created_at,
-            project.user,
+            project.owner,
             project.works.order('created_at DESC').first
         ]
       end
